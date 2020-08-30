@@ -1,0 +1,307 @@
+@import '../../global/styles/utils/mixins';
+
+.headerContainer {
+    @include grid();
+    @include container(1200px);
+    position: relative;
+    padding: 0;
+}
+
+.headerPanel {
+    @include page-header-panel();
+    grid-column: 1/8;
+
+    @media(max-width: $desktop-small) {
+        grid-column: 1/-1;
+        padding-bottom: 2rem;
+        padding: 10rem 0 2rem;
+    }
+}
+
+.squiggle {
+    @include squiggle();
+    margin-bottom: 2rem;
+}
+
+
+.nav {
+    grid-column: 9/-1;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    font-style: italic;
+    font-family: var(--serif);
+    padding: 2.5rem;
+    color: var(--brand-black);
+    box-shadow: 1px 0 100px 0 rgba(#333, 0.08);
+    border-bottom: 0.5rem solid var(--brand-one);
+    height: 80%;
+
+    @media(max-width: $desktop-small) {
+        grid-column: 1/-1;
+        box-shadow: none;
+        border-bottom: none;
+        margin-bottom: 8rem;
+        padding: 1rem 0 3rem;
+        justify-content: start;
+        height: auto;
+    }
+
+    @media (max-width: $fablet) {
+        text-align: center;
+    }
+
+    p {
+        font-style: normal;
+        text-transform: lowercase;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        font-weight: bold;
+        padding-bottom: 1.5rem;
+        border-bottom: 2px dotted rgba(black, 1);
+
+        @media (max-width: $desktop-small) {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+
+    a {
+        display: block;
+        cursor: pointer;
+        width: 100%;
+        text-transform: lowercase;
+        transition: all 0.1s ease-in-out;
+
+        @media(max-width: $desktop-small) {
+            padding: 0.5rem;
+        }
+
+        &:before {
+            content: attr(data-key);
+            display: inline-block;
+            margin-right: 0.4rem;
+
+            @media(min-width: $desktop-small) {
+                margin-right: -0.4rem;
+                font-size: 2.2rem;
+                line-height: 1.2;
+                opacity: 0.08;
+            }
+        }
+
+        @media(min-width: $tablet) {
+            &:hover {
+                color: var(--color);
+            }
+        }
+    }
+}
+
+.serviceItemContainer {
+    *::selection {
+        background: var(--bg);
+    }
+
+    position: relative;
+
+    &:nth-child(even) {
+        background: #f2f2f2;
+        background: var(--brand-offwhite);
+    }
+
+    &:not(:last-of-type) {
+        margin-bottom: 1rem;
+    }
+}
+
+.container {
+    @include grid();
+    @include container(1200px);
+    padding: 11rem 1rem;
+    align-content: stretch;
+}
+
+.serviceMainContent {
+    grid-column: 1/8;
+
+    @media(max-width: $tablet) {
+        grid-column: 1/-1;
+    }
+
+    h2 {
+        font-size: 2rem;
+        text-transform: lowercase;
+        margin-bottom: 2rem;
+
+        @media(max-width: $tablet) {
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        span {
+            color: var(--brand-black) !important;
+        }
+    }
+
+    p:first-of-type {
+        font-family: var(--serif);
+        font-size: 1.2rem;
+        font-style: italic;
+        margin: 2rem auto;
+    }
+    strong {
+        font-size: 0.8rem;
+        font-family: var(--serif);
+        font-style: italic;
+        display: block;
+        margin-top: 3rem;
+        max-width: 500px;
+        font-weight: bold;
+    }
+}
+
+.introImg {
+    position: absolute;
+    width: 12rem;
+    height: auto;
+    top: -4rem;
+    left: 6rem;
+
+    @media (max-width: $desktop-large) {
+        top: -6rem;
+        left: 1rem;
+    }
+
+    @media(max-width: $tablet) {
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 9rem;
+        top: -6rem;
+    }
+}
+
+.lines {
+    max-width: 3rem;
+    width: 100%;
+    height: auto;
+    opacity: 0.2;
+
+    @media(max-width: $tablet) {
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.sidebar {
+    grid-column: 10/-1;
+    font-family: var(--serif);
+
+    @media(max-width: $desktop-small) {
+        grid-column: 9/-1;
+    }
+    @media(max-width: $tablet) {
+        display: none;
+    }
+
+    p {
+        font-weight: bold;
+    }
+
+    ul {
+        margin: 1rem auto;
+        font-size: 0.8rem;
+
+        p {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            font-style: italic;
+            &.italics {
+                font-size: 0.7rem;
+            }
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 1rem;
+            li {
+                margin: 0.5rem auto;
+            }
+        }
+    }
+
+    em {
+        font-size: 0.7rem;
+        font-style: italic;
+    }
+}
+
+.CTALink {
+    margin-top: 4rem;
+    @include btn-primary(var(--bg));
+
+    @media(max-width: $tablet) {
+        text-align: center;
+        display: block;
+        margin: 4rem auto 0;
+        width: 12rem;
+    }
+}
+
+.imageContainer {
+    width: 4rem;
+    width: clamp(1rem, 4vw, 100px);
+    position: absolute;
+    height: 100%;
+    border-right: 0.3rem solid var(--bg);
+    overflow: hidden;
+
+    p {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin-bottom: 0;
+    }
+
+    img {
+        transform: translateX(-9%);
+        height: 100%;
+        width: auto;
+    }
+
+    @media (max-width: $desktop-large) {
+        width: 100%;
+        height: 12rem;
+        border-right: none;
+        border-bottom: 0.4rem solid var(--bg);
+        position: relative;
+
+        img {
+            transform: translateX(0) translateY(-30%);
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    @media (max-width: $tablet) {
+        height: 6rem;
+        margin-bottom: -2rem;
+    }
+}
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .sidebar {
+        display: none;
+    }
+
+    .serviceItemContainer {        
+        &:nth-child(even) {
+            background: #f7f7f7;
+        }
+    }
+}

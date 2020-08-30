@@ -1,0 +1,45 @@
+@import '../../global/styles/utils/mixins';
+
+.ctaPanel {
+    padding: var(--section-padding);
+    background: var(--brand-offwhite);
+    text-align: center;
+    
+    h3 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-transform: lowercase;
+        &:after {
+            content: '.';
+            color: var(--brand-one);
+        }
+    }
+}
+
+.wrapper {
+    @include container(800px);
+}
+
+
+.content {
+    font-size: 1.2rem;
+
+    p {
+        margin-bottom: 2rem;
+    }
+}
+
+.smallText {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.6;
+    max-width: 550px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    
+}
+.ctaLink {
+    @include btn-primary();
+}

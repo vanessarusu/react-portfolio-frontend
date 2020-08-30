@@ -1,0 +1,118 @@
+@import '../../global/styles/utils/mixins';
+@import '../../global/styles/foundation/theme';
+@import '../../global/styles/foundation/breakpoints';
+
+
+.aboutContainer {
+    @include grid(2);
+    @media (max-width: $desktop-small) {
+        display: block;
+    }
+}
+
+.imageContainer {
+    grid-column: span 1;
+    overflow: hidden;
+    
+    @media (min-width: $desktop-small) {
+        min-height: 100vh;
+        height: 100vh;
+    }
+
+    @media (max-width: $desktop-small) {
+       max-height: 50vh;
+    }
+
+    img {
+        height: 100%;
+        @media (max-width: $desktop-small) {
+            width: 100%;
+            height: auto;
+         }
+    }
+}
+
+.contentContainer {
+    grid-column: span 1;
+    align-self: center;
+    margin: 6rem;
+    @media (max-width: $tablet) {
+        margin: 4rem 2rem;
+    }
+    max-width: 600px;
+
+    h3 {
+        @include page-heading();
+    }
+}
+
+.content {
+
+    p:first-of-type {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-style: italic;
+    }
+
+    p:last-of-type {
+        font-size: 0.75rem;
+        color: lighten($black, 50%);
+        font-family: var(--serif);
+        font-style: italic;
+        line-height: 1.6;
+        margin-top: 3rem;
+    }
+}
+
+.button {
+    @include btn-primary();
+    @media (max-width: $tablet) {
+        margin-top: 1rem;
+    }
+}
+
+.squiggle {
+    @include squiggle();
+    margin-bottom: 2rem;
+}
+
+.aboutCTA {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    @media (max-width: $tablet) {
+        display: block;
+        text-align: center;
+    }
+}
+
+.socialLinks {
+    margin-top: 1rem;
+
+    a {
+        margin-right: 1rem;
+        transition: all 0.1s ease;
+
+        &:hover {
+            @media (min-width: $desktop-small) {
+                color: var(--brand-one);
+            }
+        }
+    }
+}
+
+// ie fix
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .imageContainer {
+        width: 100%;
+        min-height: 50vh;
+        height: 50vh;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .contentContainer {
+        margin: 100px auto;
+    }
+}

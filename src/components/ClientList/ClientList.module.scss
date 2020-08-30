@@ -1,0 +1,54 @@
+@import '../../global/styles/utils/mixins';
+@import '../../global/styles/foundation/theme';
+@import '../../global/styles/foundation/breakpoints';
+
+.clientListContainer {
+    background: darken($brand-black, 10%);
+    padding: 6rem 4rem;
+    position: relative;
+
+    .galleryContainer {
+        @include container(1200px);
+
+        & > div {
+            @include grid(6);
+            text-align: center;
+            @media (max-width: $desktop-small) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            @media (max-width: $tablet) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            align-items: center;
+            grid-gap: 0.5rem;
+
+            figure {
+                pointer-events: none;
+                img {
+                    max-width: 110px;
+                    width: 100%;
+                    height: auto;
+                    opacity: 0.4;
+                }
+            }
+        }
+    }
+}
+
+.meta {
+    @include meta();
+    color: rgba($white, 0.4);
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .clientListContainer {
+        .galleryContainer > div {
+            display: -ms-flexbox;
+            flex-wrap: wrap;
+
+            figure {
+                margin: 1rem;
+            }
+        }
+    }
+}

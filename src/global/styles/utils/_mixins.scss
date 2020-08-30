@@ -1,0 +1,117 @@
+@import '../foundation/breakpoints';
+@import '../foundation/typography';
+
+@mixin container($max-width: 1400px) {
+    width: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 1rem;
+    @media (max-width: $desktop-large) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    @media (max-width: $desktop-small) {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+    @media (max-width: $fablet) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@mixin grid($cols:12) {
+    display: grid;
+    grid-template-columns: repeat($cols, 1fr);
+}
+
+@mixin transition($speed: 0.2s, $ease: ease-in-out) {
+    transition: all $speed $ease;
+}
+
+@mixin psuedo-boiler() {
+    position: absolute;
+    content: '';
+    display: block;
+}
+
+@mixin meta($top: 2rem, $right: 2rem) {
+    position: absolute;
+    text-transform: uppercase;
+    right: $right;
+    top: $top;
+    writing-mode: vertical-rl;
+    letter-spacing: 0.8rem;
+    font-size: 0.8rem;
+    opacity: 0.4;
+}
+
+@mixin btn-primary($background: var(--brand-one), $hoverText: var(--brand-black)) {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-family: var(--serif);
+    font-style: italic;
+    padding: 1rem;
+    position: relative;
+    z-index: 0;
+    @include transition(0.15s, ease-out);
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: $background;
+        @include transition(0.15s, ease-out);
+        z-index: -10;
+    }
+    @media (min-width: $desktop-small) {
+        &:hover {
+            color: $hoverText;
+            &:after {
+                height: 100%;
+            }
+        }
+    }
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        font-family: $serif;
+        &:after {
+            background: black;
+        }
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+@mixin squiggle() {
+    max-width: 3rem;
+    margin: 2rem 0 8rem;
+}
+
+@mixin page-heading($decorative-period: true) {
+    font-size: 2.4rem;
+    text-transform: lowercase;
+    @media (max-width: $tablet) {
+        font-size: 2rem;
+    }
+    @if $decorative-period {
+        &:after {
+            content: ' .';
+            color: var(--brand-one);
+        }
+    }
+}
+
+@mixin page-header-panel() {
+    @include container(1200px);
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    
+    h2 {
+        @include page-heading();
+    }
+}

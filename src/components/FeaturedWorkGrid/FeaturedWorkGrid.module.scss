@@ -1,0 +1,21 @@
+@import '../../global/styles/utils/mixins';
+
+.gridContainer {
+    @include grid(12);
+    grid-gap: 1rem;
+}
+
+// ie fix
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .gridContainer > div {
+        display: block;
+        width: 49%;
+        margin: 0.4%;
+        float: left;
+    }
+    .gridContainer:after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+}

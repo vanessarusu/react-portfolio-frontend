@@ -1,0 +1,96 @@
+@import '../../global/styles/utils/mixins';
+
+.threeKings {
+    background: var(--brand-offwhite);
+    padding: var(--section-padding);
+    position: relative;
+
+    @media (max-width: $desktop-small) {
+        padding: 6rem 2rem;
+    }
+    @media (max-width: $fablet) {
+        padding: 6rem 0;
+    }
+    
+    h2 {
+        font-size: 2.4rem;
+        text-transform: lowercase;
+        font-family: var(--serif);
+        margin-bottom: 2rem;
+        
+        span {
+            color: var(--brand-one);
+        }
+    }
+}
+
+.meta {
+   @include meta();
+}
+
+.container {
+    @include container(1000px);
+    @media (max-width: $desktop-medium) {
+        max-width: 800px;
+    }
+}
+
+.gridContainer {
+    @include grid(3);
+    @media (max-width: $desktop-small) {
+        grid-template-columns: 1fr;
+    }
+
+    grid-gap: 5rem;
+
+    h3 {
+        text-transform: lowercase;
+        font-family: var(--serif);
+        font-size: 1.6rem;
+        @media (max-width: $fablet) {
+            font-size: 1.2rem;
+        }
+        line-height: 1.2;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+    
+        &:after {
+            @include psuedo-boiler();
+            width: 2rem;
+            height: 1px;
+            left: 0;
+            bottom: 0;
+            background: var(--black);
+        }
+    }
+}
+
+
+.squiggle {
+    @include squiggle();
+}
+
+.panelCTA {
+    @include btn-primary();
+    margin-top: 5rem;
+}
+
+
+// ie fix
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .threeKings {
+        padding: 80px 1rem;
+    }
+    .gridContainer > div {
+        display: block;
+        width: 33%;
+        float: left;
+
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    }
+}

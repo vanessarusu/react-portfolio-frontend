@@ -1,0 +1,58 @@
+@import '../../global/styles/foundation/breakpoints';
+@import '../../global/styles/utils/mixins';
+
+.instagramContainer {
+    @include grid(6);
+    margin: 0;
+    padding: 0;
+
+    img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    @media (max-width: $desktop-small) {
+        @include grid(5);
+        li:nth-child(6) {
+            display: none;
+        }
+    }
+
+    @media (max-width: $tablet) {
+        @include grid(3);
+        grid-template-rows: 1fr 1fr;
+        
+        li:nth-child(6) {
+            display: block;
+        }
+    }
+}
+
+.socialIntro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0.2vw;
+    background: var(--brand-offwhite);
+
+    h4 {
+        @media (max-width: $fablet) {
+            font-size: 0.8rem;
+        }
+    }
+    a {
+        @media (max-width: $fablet) {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+// ie fix
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .instagramContainer {
+        display: none;
+    }
+}

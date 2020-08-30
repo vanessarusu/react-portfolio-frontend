@@ -1,0 +1,73 @@
+@import '../../global/styles/utils/mixins';
+@import '../../global/styles/foundation/theme';
+@import '../../global/styles/foundation/breakpoints';
+
+
+.footerContainer {
+    padding: 1rem;
+}
+
+.container {
+    @include container();
+    display: flex;
+    justify-content: space-between;
+    font-family: $serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    
+    @media(max-width: $fablet) {
+        display: block;
+        text-align: center;
+    }
+
+    ul {
+        @include grid(6);
+        @media(max-width: $desktop-small) {
+            display: none;
+        }
+
+        li a {
+            padding: 0.6rem;
+            display: block;
+            margin: 0.2rem;
+            text-align: center;
+        }
+    }
+}
+
+.logo {
+    max-width: 200px;
+    width: 100%;
+    margin-top: 0.8rem;
+
+    @media(max-width: $fablet) {
+        max-width: 100%;
+    }
+
+    img {
+        max-width: 130px;
+    }
+
+}
+
+.copyrightContainer {
+
+    span, a {
+        color: lighten(black, 60%);
+    }
+}
+
+.social a {
+    font-size: 1.0rem;
+    color: var(--brand-one);
+    padding: 0.6rem;
+    margin: 0.3rem;
+}
+
+// ie fix
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+    .footerContainer nav {
+        display: none;
+    }
+}

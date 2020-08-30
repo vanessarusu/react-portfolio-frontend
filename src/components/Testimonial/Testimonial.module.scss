@@ -1,0 +1,60 @@
+@import '../../global/styles/utils/mixins';
+@import '../../global/styles/foundation/theme';
+
+.testimonialPanel {
+    @include container(800px);
+    text-align: center;
+    padding: 8rem 4rem;
+    border-top: 0.6rem solid var(--brand-one);
+}
+
+.sectionHeading {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-family: var(--sans-serif);
+    font-weight: 400;
+    letter-spacing: 5px;
+    margin-bottom: 3rem;
+}
+
+.squiggle {
+    max-width: 1.6rem;
+    margin: 1.6rem 0 2rem;
+}
+
+.testimonialContent {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    @media(max-width: $fablet) {
+        font-size: 1rem;
+    }
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+.author {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.headline {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.button {
+    @include btn-primary();
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .testimonialPanel {
+        border-top: 0.6rem solid $brand-one;
+        h3 {
+            font-family: $sans-serif;
+        }
+        .author {
+            font-family: $serif;
+        }
+    }
+}

@@ -1,0 +1,137 @@
+@import '../../global/styles/foundation/theme';
+@import '../../global/styles/utils/mixins';
+
+.heroContainer {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    background: $brand-one;
+    background: var(--brand-one) url(https://vanessasink.com/assets/flatlay-shadow.jpg) center center no-repeat;
+    background: var(--brand-one) url(../../img/new-bg-2020.jpg) center center no-repeat;
+
+    background-size: cover;
+    transition: background-position 0.2s ease;
+    position: relative;
+    z-index: 0;
+
+    @media (max-width: $fablet) {
+        background-size: cover;
+        background-position: 85% center;
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba($brand-one, 1) 20%, rgba($brand-one, 0.7) 60%, rgba($brand-one, 0) 80%);
+            z-index: 0;
+        }
+    } 
+}
+
+.copyContainer {
+    @include container();
+    margin-top: 14rem;
+    transition: max-width 0.1s ease-in-out;
+    position: relative;
+    z-index: 10;
+
+    @media (max-width: $desktop-large) {
+        max-width: 1100px;
+        margin-top: 20rem;
+    }
+
+    @media (max-width: $desktop-small) {
+        max-width: 800px;
+    }
+
+    @media (max-width: $tablet) {
+        margin-top: 28rem;
+        max-width: 650px;
+    }
+
+    @media (max-width: $fablet) {
+        max-width: 450px;
+        margin-top: 20rem;
+    }
+
+    h1 {
+        display: block;
+        font-size: 2.2rem;
+
+        @media (max-width: $desktop-large) {
+            font-size: 1.8rem;
+        }
+
+        @media (max-width: $desktop-small) {
+            font-size: 1.4rem;
+        }
+        @media only screen 
+            and (device-width : 375px) 
+            and (device-height : 812px) 
+            and (-webkit-device-pixel-ratio : 3) { 
+                font-size: 1.2rem;
+            }
+
+
+        p {
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 0;
+
+            span {
+                transform: translateY(110%);
+                display: block;
+                transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;  
+                opacity: 0;
+            }
+
+            strong {
+                display: inline-block;
+                color: white;
+            }
+        }
+    }
+}
+
+.heroCTA {
+    margin-top: 3rem;
+    @include btn-primary($brand-black, white);
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(1.8rem);
+    transition: transform 0.8s ease-in-out 1.5s, 
+                opacity 0.8s ease-in-out 1.6s;
+}
+
+.heroContainer {
+    .fadeIn {
+        h1 {
+            opacity: 1;
+
+            @for $i from 1 through 4 {
+                p:nth-child(#{$i}) span {
+                  transition-delay: $i/4+s;
+                }
+            }            
+
+            span {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .heroCTA {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .copyContainer {
+        margin-top: 35vh;
+    }
+}

@@ -1,0 +1,93 @@
+@import './colorswatch';
+@import './typography';
+@import './grid';
+@import './breakpoints';
+
+// colors
+$brand-one: $yellow;
+$brand-two: $coral;
+$brand-three: $teal;
+$brand-black: $black;
+$brand-offwhite: $offwhite;
+
+$black: $default-black;
+$white: $default-white;
+
+:root {
+    --brand-one: var(--yellow);
+    --brand-two: var(--coral);
+    --brand-three: var(--teal);
+    --brand-black: var(--black);
+    --brand-offwhite: var(--offwhite);
+
+    --true-black: var(--default-black);
+    --true-white: var(--default-white);
+
+    --serif: poynter-oldstyle-text, serif;
+    --sans-serif: neuzeit-grotesk, sans-serif;
+
+
+    --section-padding: 10rem 0;
+}
+
+//typography
+::selection {
+    background-color: $brand-one;
+    color: $brand-black;
+}
+
+img::selection {
+    background: transparent;
+}
+
+body {
+    font-family: $sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    color: $brand-black;
+    padding: 1rem;
+    padding-top: 4rem; // account for fixed header
+    @media (max-width: $fablet) {
+        padding: 4rem 0.5rem;
+    }
+    position: relative;
+    overflow-x: hidden;
+
+    &:after {
+        content: '';
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 1rem solid $white;
+        @media (max-width: $fablet) {
+            border: 0.5rem solid $white;
+        }
+        pointer-events: none;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    font-family: $serif;
+    
+}
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+}
+
+.modal-open {
+    overflow: hidden;
+}

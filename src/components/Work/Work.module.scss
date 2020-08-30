@@ -1,0 +1,12 @@
+@import '../../global/styles/utils/mixins';
+@import '../../global/styles/foundation/theme';
+@import '../../global/styles/foundation/breakpoints';
+
+.headerPanel {
+    @include page-header-panel();
+}
+
+.squiggle {
+    @include squiggle();
+    margin-bottom: 2rem;
+}
