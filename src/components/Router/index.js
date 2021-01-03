@@ -24,7 +24,6 @@ history.listen((location, action) => {
     ReactGA.pageview(location.location.pathname + location.search);
 });
 
-
 console.log("%c \xa9 2021 Vanessa Rusu. hello@vanessarusu.com :) ", "font-size: 16px; color: #ffb100; padding: 20px;")
 
 const RouterComponent = () => (

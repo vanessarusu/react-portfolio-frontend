@@ -46,16 +46,16 @@ class HomepageHero extends React.Component {
                     <Link to={endpoints.SERVICES_PAGE_LINK.link} className={styles.heroCTA}>browse services</Link>
                 </div>
                 <div className={styles.heroImageContainer}>
-                    <img src={heroImage}/>
+                    <img src={heroImage} alt="iPad's featuring design mockups"/>
                 </div>
                 <div className={styles.ipadContainer}>
-                    <img src={ipad} />
+                    <img src={ipad} alt="Featured Work Slider iPad"/>
                     <div className={styles.sliderContainer}>
                         <div className={styles.imageContainer}>
-                            <div><img src={slide2}/></div>
-                            <div><img src={slide1}/></div>
-                            <div><img src={slide3}/></div>
-                            <div><img src={slide4}/></div>
+                            <div><img src={slide2} alt="Featured Work Slide"/></div>
+                            <div><img src={slide1} alt="Featured Work Slide"/></div>
+                            <div><img src={slide3} alt="Featured Work Slide"/></div>
+                            <div><img src={slide4} alt="Featured Work Slide"/></div>
                         </div>
                     </div>
                 </div>
