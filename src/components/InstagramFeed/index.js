@@ -1,11 +1,6 @@
 import React from 'react';
 import styles from './InstagramFeed.module.scss';
-// import squiggle from '../../img/squiggle.svg';
 import * as endpoints from '../../global/endpoints';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faInstagram, faDribbble, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
-// import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-// import { Link } from "react-router-dom";
 
 class InstagramFeed extends React.Component {
     constructor(props) {
@@ -16,14 +11,13 @@ class InstagramFeed extends React.Component {
     }
 
     componentDidMount() {        
-        let accessToken = 'IGQVJWaDhHODJqZAEdtSTFONDRLRW9LZAFJiVHlxQlFQMV9GMHZABdWNzeDI4bGRhbkVoVHN5X3R0TzZAfQ195dy1jME5BSWZAzcktSTFJDcW1SN0I1U2JvTlZARUnlGWGVSTkF1RzRXMVF3';
+        let accessToken = 'IGQVJWR081R0Rjdjk4YnhRR21TenZA4NXpwWUJCM2lHanZAiWlpPTVhpbXV4RWp1cDRET3MwOVcwYkU5WEFKSGdlNjFEcWJRaG5NZAnI1X0IxdGItcldjbVIzN3pCRXdaeEM1TkRLVEJ2UHZAHQlJfNTdIbQZDZD';
         Promise.all([
           fetch('https://graph.instagram.com/me/media?fields=media_url,username&limit=5&access_token='+accessToken),
         //   fetch('https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_secret=c5c02891640da029406a98e35577b374&access_token=IGQVJXTmYyN003UldLNERQNG1jbkRUX3VQNzJfY1ZAnQjBMMkRfQXgtM1NfNVN2alM3VllndVpTR2VoamRJUTAyWThudzNFU1dUMVBzbXgyVEkxNkgwYjdyNmFDWm5XODFGenNMLXpPMHJlN1ZAMdjBwYW5YVTN0WlRIVS1z')
         ])
         .then(res => Promise.all(res.map(x => x.json())))
         .then((values) => {
-            // console.log(values);
             this.setState({data: values[0].data});
             // document.title = this.state.data.title.rendered + ' —  by Vanessa Rusu';
         });

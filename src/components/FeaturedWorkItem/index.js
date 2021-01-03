@@ -8,50 +8,76 @@ class FeaturedWorkItem extends React.Component {
 
         this.state = {
             hover: false,
-            columns: props.columns
+            columns: props.columns,
+            mounted: false,
         }
     }
+
+    componentWillReceiveProps(nextprops) {
+        this.setState({mounted: false});
+        setTimeout(() => {
+            this.setState({
+                mounted: true,
+               })
+       }, 50)
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+             this.setState({
+                 mounted: true,
+                })
+        }, 50)
+       
+    }
+
     hoverFunction = (e) => {
         let currentState = this.state.hover;
         currentState = !currentState;
 
         this.setState({
-            hover: currentState
+            hover: currentState,
         })
     }
 
     render() {
+
         const className = styles['columns-'+this.props.columns];
 
         if (this.props.data.length === 0) {
             return null;
         }
+
         const data = this.props.data;
         const themeBlackColorRef = window.getComputedStyle(document.documentElement).getPropertyValue("--brand-black");
         const hoverOpacity = 0.95;
         const urlString = `/work/${data.slug}`;
+        const colorTernary = `${data.acf.project_light_hover_description ? 'white' : themeBlackColorRef }`;
         
-        return (
-                <div className={`${this.state.hover ? styles.hoverActive : ''} ${styles.gridItem} ${className}`} onMouseEnter={this.hoverFunction} onMouseLeave={this.hoverFunction}>
+        return (     
+            <div 
+            className={`${this.state.hover ? styles.hoverActive : ''} ${styles.gridItem} ${className} ${this.state.mounted ? styles.mounted : styles.unmounted}`} 
+            onMouseEnter={this.hoverFunction} 
+            onMouseLeave={this.hoverFunction}>
+                <Link to={{pathname: urlString}}>
                     <h3 className="sr-only">{data.title.rendered}</h3>
-                    <Link to={{pathname: urlString}}>
-                        <figure>
-                            <div className={styles.imageContainer}>
-                                <img src={data._embedded['wp:featuredmedia']['0'].source_url} alt={`${data.title.rendered} - ${data.acf.categories}`} />
+                    <figure>
+                        <div className={styles.imageContainer}>
+                            <img src={data._embedded['wp:featuredmedia']['0'].source_url} alt={`${data.title.rendered} - ${data.acf.project_categories}`} />
+                        </div>
+                        <figcaption className={styles.itemCaptionContainer}>
+                            <div className={`${styles.itemCaption} ${data.acf.project_dark_hover_title ? styles.darkHover : '' }`}>
+                                <p className={styles.itemTitle}>{data.title.rendered}</p>
+                                <p className={styles.itemCategories}>{data.acf.project_categories}</p>
+                                <p className={styles.itemSubtext} style={{color: `${data.acf.project_light_hover_description ? 'white' : themeBlackColorRef }`}}>{data.acf.project_excerpt}</p>
+                                <p role="button" className={styles.button} style={{color: colorTernary, borderColor: colorTernary, '--hover': colorTernary}}>View Project</p>
                             </div>
-                            <figcaption className={styles.itemCaptionContainer}>
-                                <div className={`${styles.itemCaption} ${data.acf.dark_hover_title ? styles.darkHover : '' }`}>
-                                    <p className={styles.itemTitle}>{data.title.rendered}</p>
-                                    <p className={styles.itemCategories}>{data.acf.categories}</p>
-                                    <p className={styles.itemSubtext} style={{color: `${data.acf.light_hover_description ? 'white' : themeBlackColorRef }`}}>{data.acf.subtext}</p>
-                                </div>
-                                <span className={styles.itemHoverBackground}
-                                    style={{background: data.acf.custom_primary_color, opacity: this.state.hover ? hoverOpacity : 0}}></span>
-                            </figcaption>
-                        </figure>
-                    </Link>
-                </div>
-            
+                            <span className={styles.itemHoverBackground}
+                                style={{background: data.acf.project_primary_color, opacity: this.state.hover ? hoverOpacity : 0}}></span>
+                        </figcaption>
+                    </figure>
+                </Link>
+            </div>
         )
     }    
 }

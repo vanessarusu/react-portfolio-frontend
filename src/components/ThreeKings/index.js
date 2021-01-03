@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 import * as endpoints from '../../global/endpoints';
 
 const ThreeKings = (props) => (
-    <div className={styles.threeKings}>
+    <div role="main" id="threeKings" className={styles.threeKings} aria-labelledby="threeKings">
         {Object.keys(props.data).map(key => {
             return (
             <div key={key} className={styles.container}>
-                <span className={styles.meta}>{props.data[0].acf.supporting_callout}</span>
-                <h2>{props.data[key].title.rendered}<span>.</span></h2>
+                <span className={styles.meta}>{props.data[0].title.rendered}</span>
+                <h2>{props.data[key].title.rendered}</h2>
                 <img className={styles.squiggle} src={squiggle} alt="squiggle"></img>
                 <div>
                     <div className={styles.gridContainer} dangerouslySetInnerHTML={{ __html: props.data[key].content.rendered }} />

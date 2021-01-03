@@ -15,6 +15,8 @@ class PrivacyPolicy extends React.Component {
 
 
     componentDidMount(){
+        document.title = `${endpoints.PRIVACY_POLICY_PAGE_TITLE_PARTIAL + endpoints.PAGE_TITLE_CONSTANT}`;
+
 
         Promise.all([
             fetch(endpoints.POSTS_BY_ID(endpoints.PRIVACY_POLICY))

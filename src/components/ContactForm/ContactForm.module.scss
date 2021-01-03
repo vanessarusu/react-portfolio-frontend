@@ -32,6 +32,7 @@
 
         &:focus {
             border-bottom-color: var(--brand-black);
+            outline: blue;
         }
 
         @media (max-width: $tablet) {

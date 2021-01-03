@@ -1,74 +1,194 @@
 @import '../../global/styles/foundation/theme';
 @import '../../global/styles/utils/mixins';
+$mainheightbreakpoint: 1200px;
+$widthbreakpoint: 1700px;
 
 .heroContainer {
-    min-height: 85vh;
+    height: 800px;
     display: flex;
     align-items: center;
-    background: $brand-one;
-    background: var(--brand-one) url(https://vanessasink.com/assets/flatlay-shadow.jpg) center center no-repeat;
-    background: var(--brand-one) url(../../img/new-bg-2020.jpg) center center no-repeat;
-
-    background-size: cover;
+    background: #ce7a02;
+    position: relative;
+    background-size: 100%;
     transition: background-position 0.2s ease;
     position: relative;
-    z-index: 0;
 
-    @media (max-width: $fablet) {
-        background-size: cover;
-        background-position: 85% center;
+    @media (max-width: $desktop-large) {
+        height: 760px;
+    }
 
-        &:after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
+    @media (max-width: $tablet) {
+        height: 650px;
+    }        
+
+    .heroImageContainer {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        overflow: hidden;
+
+        img {
             height: 100%;
-            background: linear-gradient(0deg, rgba($brand-one, 1) 20%, rgba($brand-one, 0.7) 60%, rgba($brand-one, 0) 80%);
-            z-index: 0;
+            right: 0;
+            position: absolute;
+            @include transition(0.1s);
+
+            @media(max-width: $widthbreakpoint) { 
+                right: -200px;
+            }
+
+            @media (max-width: $desktop-medium) {
+                right: 0;
+            }
+
+            @media (max-width: $tablet) {
+                right: -120px;
+            }
+
+            @media (max-width: $fablet) {
+                right: -220px;
+            }
         }
-    } 
+    }
+
+    .ipadContainer {
+        position: absolute;
+        z-index: 10;
+        right: 170px;
+        top: 130px;
+        @include transition(0.1s);
+
+        @media(max-width: $widthbreakpoint) { 
+            right: -40px;
+            top: 120px;
+        }
+
+        @media(max-width: $desktop-large) {
+            right: -20px;
+        }
+        
+        @media (max-width: $desktop-medium) {
+            display: none;
+        }
+
+        img {
+            height: 880px;
+
+            @media(max-width: $desktop-large) {
+                height: 780px;
+            }
+            
+        }
+
+        .sliderContainer {
+            // display: none;
+            $width: 475px;
+            $widthbreakpointimg: 420px;
+            position: absolute;
+            top: 90px;
+            height: 632px;
+            left: 142px;
+            width: $width;
+            border-radius: 8px;
+            overflow: hidden;
+            transform: rotate(-24.4deg);
+
+            @media(max-width: $desktop-large) {
+                width: $widthbreakpointimg;
+                height: 560px;
+                top: 80px;
+                left: 125px;
+            }
+
+            .imageContainer {
+                width: 300vh;
+                animation: alls 12s ease-in-out infinite;
+                animation-delay: 0.4s;
+
+                @media(max-width: $desktop-large) {
+                    animation: sliderbreakpoint 12s ease-in-out infinite;
+                }
+                
+                div {
+                    display: inline;
+                    overflow: hidden;
+    
+                    img {
+                        opacity: 0.95;
+                        width: $width;
+                        height: auto;
+
+                        @media(max-width: $desktop-large) {
+                            width: $widthbreakpointimg;
+                        }
+                    }
+                }
+            }
+
+            @keyframes alls{
+                0%{margin-left: 0px;}
+                23%{margin-left: 0px;}
+                29%{margin-left: -#{$width};}
+                48%{margin-left: -#{$width};}
+                54%{margin-left: calc(-1 * (#{$width} * 2)); }
+                73%{margin-left: calc(-1 * (#{$width} * 2)); }
+                79%{margin-left: calc(-1 * (#{$width} * 3)); }
+                98%{margin-left: calc(-1 * (#{$width} * 3)); }
+                100%{margin-left: 0px; }
+            }
+
+            @keyframes sliderbreakpoint {
+                0%{margin-left: 0px;}
+                23%{margin-left: 0px;}
+                29%{margin-left: -#{$widthbreakpointimg};}
+                48%{margin-left: -#{$widthbreakpointimg};}
+                54%{margin-left: calc(-1 * (#{$widthbreakpointimg} * 2)); }
+                73%{margin-left: calc(-1 * (#{$widthbreakpointimg} * 2)); }
+                79%{margin-left: calc(-1 * (#{$widthbreakpointimg} * 3)); }
+                98%{margin-left: calc(-1 * (#{$widthbreakpointimg} * 3)); }
+                100%{margin-left: 0px; }
+            }
+        }
+    }
 }
 
 .copyContainer {
     @include container();
-    margin-top: 14rem;
+    margin-top: 16rem;
     transition: max-width 0.1s ease-in-out;
     position: relative;
     z-index: 10;
+    padding-left: 4rem;
 
     @media (max-width: $desktop-large) {
         max-width: 1100px;
         margin-top: 20rem;
     }
 
-    @media (max-width: $desktop-small) {
+    @media (max-width: $desktop-medium) {
         max-width: 800px;
+        margin-top: 14rem;
     }
 
     @media (max-width: $tablet) {
-        margin-top: 28rem;
         max-width: 650px;
     }
 
     @media (max-width: $fablet) {
         max-width: 450px;
-        margin-top: 20rem;
+        margin-top: 10rem;
     }
 
     h1 {
         display: block;
-        font-size: 2.2rem;
+        font-size: 2.4rem;
 
         @media (max-width: $desktop-large) {
             font-size: 1.8rem;
         }
 
-        @media (max-width: $desktop-small) {
-            font-size: 1.4rem;
-        }
         @media only screen 
             and (device-width : 375px) 
             and (device-height : 812px) 
@@ -103,8 +223,8 @@
     margin-bottom: 4rem;
     opacity: 0;
     transform: translateY(1.8rem);
-    transition: transform 0.8s ease-in-out 1.5s, 
-                opacity 0.8s ease-in-out 1.6s;
+    transition: transform 0.8s ease-in-out 1.4s, 
+                opacity 0.8s ease-in-out 1.5s;
 }
 
 .heroContainer {
@@ -123,6 +243,7 @@
                 opacity: 1;
             }
         }
+
         .heroCTA {
             opacity: 1;
             transform: translateY(0);

@@ -1,8 +1,14 @@
+@import '../../global/styles/foundation/colorswatch';
 @import '../../global/styles/utils/mixins';
 
 .gridContainer {
     @include grid(12);
     grid-gap: 1rem;
+
+    &:empty {
+      min-height: 100vh;
+      background: $offwhite;
+    }
 }
 
 // ie fix
@@ -18,4 +24,59 @@
         content: '';
         clear: both;
     }
+}
+
+.lastItemCTA {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (max-width: $tablet) {
+    display: none;
+  }
+
+  &.gridItem {
+    grid-column: span 6;
+    overflow: hidden;
+    position: relative;
+    @include transition();
+    background: $offwhite;
+    background: url(../../img/icon-background.jpg) center center no-repeat;
+    background-size: cover;
+
+    h2 {
+      font-size: 1.4rem;
+      text-transform: lowercase;
+      text-align: center;
+      line-height: 1.2;
+      max-width: 300px;
+      margin-bottom: 2rem;
+    }
+}
+
+  a {
+    @include btn-primary();
+    display: block;
+    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+  }
+}
+
+.button {
+  @include btn-primary();
+  font-weight: 100;
+  border-width: 1px;
+  padding: 0.6rem 1.2rem;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  margin-top: 1.2rem;
+  
+
+  &:after {
+      background: var(--hover);
+      opacity: 0.05;
+  }
 }

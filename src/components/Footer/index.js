@@ -3,8 +3,7 @@ import styles from './Footer.module.scss';
 import * as endpoints from '../../global/endpoints';
 import logo from '../../img/vanessarusu-logo-black.svg';
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import SocialLinks from './../SocialLinks';
 
 
 
@@ -19,30 +18,25 @@ class Footer extends React.Component {
             <>
                 <footer className={styles.footerContainer}>
                     <div className={styles.container}>
-                    <figure className={styles.logo}>
-                        <img src={logo} alt="logo"/>
-                    </figure>
-                        <nav>
-                            <ul>
-                                {
-                                    Object.keys(this.links).map((key) => {
-                                        return (
-                                            <li key={key} className={styles.link}>
-                                                <Link to={this.links[key].link}>{this.links[key].name}</Link>
-                                            </li>)
-                                    })
-                                }
-                            </ul>
-                        </nav>
+                        <figure className={styles.logo}>
+                            <img src={logo} alt="logo"/>
+                            <figcaption>
+                                <p>
+                                    &copy; {this.copyrightDate} vanessa rusu &nbsp; &#8212; &nbsp; 
+                                    <Link to={endpoints.PRIVACY_POLICY_PAGE.link}>{endpoints.PRIVACY_POLICY_PAGE.name}
+                                    </Link>
+                                </p>
+                            </figcaption>
+                        </figure>
+                        <div className={styles.footerSocials}>
+                            <SocialLinks />
+                        </div>
                         <div className={styles.copyrightContainer}>
-                            <span>&copy; {this.copyrightDate} vanessa rusu &nbsp; &bull; &nbsp;</span>
-                            <span><Link to={endpoints.PRIVACY_POLICY_PAGE.link}>{endpoints.PRIVACY_POLICY_PAGE.name}</Link></span>
-                            <span className={styles.social}>
-                                <a href={endpoints.INSTAGRAM_HREF} target="blank" rel="noopener noreferrer">
-                                    <FontAwesomeIcon icon={faInstagram} />
-                                    <span className="sr-only">Instagram</span>
-                                </a>
-                            </span>
+                            <p className={styles.social}></p>
+                            <p dangerouslySetInnerHTML={{__html: endpoints.FOOTER_LOCATION_INFO}}></p>
+                            <p>
+                                <a href={`mailto:${endpoints.CONTACT_EMAIL}`}>{endpoints.CONTACT_EMAIL}</a>
+                                </p>
                         </div>
                     </div>
                 </footer>

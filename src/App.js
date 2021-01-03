@@ -20,7 +20,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    document.title = 'Vanessa Rusu — a boutique visual design and front end development studio dedicated to helping entrepreneurs grow their business';
+    document.title = `${endpoints.HOME_PAGE_TITLE_PARTIAL + endpoints.PAGE_TITLE_CONSTANT}`;
 
     Promise.all([
       // notification bar

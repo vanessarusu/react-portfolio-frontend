@@ -10,3 +10,36 @@
     @include squiggle();
     margin-bottom: 2rem;
 }
+
+.filters {
+    margin-top: 3rem;
+
+    @media (max-width: $fablet) {
+        display: none;
+    }
+}
+.categoryHeadline {
+    margin-bottom: 0.5rem;
+}
+
+.filterWrapper:empty {
+    height: 22px;
+    background: $offwhite;
+    display: block;
+    animation: loading-flash 2s linear infinite;
+    &:after {
+        content: '. . . ';
+    }
+}
+
+@keyframes loading-flash {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+  }

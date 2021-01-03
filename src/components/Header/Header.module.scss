@@ -7,15 +7,27 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 1000;
     background: var(--true-white);
 }
+
+.skip {
+    left: 50%;
+    position: absolute;
+    transform: translateY(-100%);
+    color:#fff;
+}
+
 .container {
     @include container();
     @include grid();
     margin: 0 auto;
     padding: 0;
     position: relative;
+
+    @media (max-width: $desktop-small) {
+        padding-left: 0;
+    }
 
     @media (max-width: $fablet) {
         padding-left: 1rem;
@@ -24,31 +36,28 @@
 
 .logo {
     grid-column: 1/4;
-    margin: auto auto auto 1rem;
+    margin: 0.6rem auto 1rem 1rem;
     cursor: pointer;
-
-    @media (max-width: $desktop-medium) {
-        margin-top: 1.8rem;
-    }
+    padding: 0;
 
     @media (max-width: $desktop-small) {
-        margin-top: 1.4rem;
         grid-column: 1/8;
     }
     @media (max-width: $fablet) {
         margin-left: 0;
+        margin-top: 1rem;
     }
 
     img {
         width: 100%;
         height: 100%;
-        max-width: 180px;
-        min-width: 160px;
+        max-width: 280px;
+        min-width: 200px;
     }
 }
 
 .nav {
-    grid-column: 6/12;
+    grid-column: 5/12;
     box-sizing:border-box;
 
     @media (max-width: $desktop-small) {
@@ -70,7 +79,7 @@
 
     ul {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
         width: 100%;
 
         @media (max-width: $desktop-small) {
@@ -131,11 +140,8 @@
 .social {
     position: absolute;
     right: 2rem;
-    top: 2rem;
-
-    a {
-        color: var(--yellow);
-    }
+    top: 1.8rem;
+    font-size: 20px;
 
     @media (max-width: $desktop-small) {
         display: none;
@@ -229,10 +235,12 @@
           width: 100%;
           margin-top: 3rem;
 
-          h4 {
+          .headline {
               @include page-heading();
               font-size: 1rem !important;
               margin-bottom: 0.5rem;
+              font-weight: bold;
+              font-family: var(--serif);
           }
 
           p {

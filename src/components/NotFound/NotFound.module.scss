@@ -1,0 +1,44 @@
+@import '../../global/styles/utils/mixins';
+
+.notFoundContainer {
+    text-align: center;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > div {
+        padding: 1rem 2rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 8rem;
+        font-family: var(--sans-serif);
+        margin-bottom: 1rem;
+        @media (max-width: $fablet) {
+            font-size: 4rem;
+        }
+
+        span {
+            color: var(--brand-one);
+        }
+    }
+
+    p {
+        font-family: var(--serif);
+        font-style: italic;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    .backButton a {
+        @include btn-primary();
+        margin-top: 3rem;
+        text-decoration: none;
+        font-style: normal;
+    }
+}

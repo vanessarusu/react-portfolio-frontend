@@ -70,7 +70,8 @@ class Header extends React.Component {
     links = endpoints.SITE_NAVIGATION;
     render() {
         return (
-            <header className={styles.header}>
+            <header className={styles.header} role="banner">
+                <a href="#content" className={styles.skip}>Skip to content</a>
                 <div className={styles.container}>
                     <figure className={styles.logo}>
                         <Link to={'/'}>
@@ -84,7 +85,9 @@ class Header extends React.Component {
                                 <span></span>
                             </div>
                         </div>
-                    <nav className={styles.nav}>
+                    <nav className={styles.nav} aria-label="Primary Navigation">
+                    <h2 className="sr-only" aria-hidden="true">Main Navigation</h2>
+
                         <ul>
                             {
                                 Object.keys(this.links).map((key) => {
@@ -98,15 +101,14 @@ class Header extends React.Component {
                         
                         <span className={styles.social}>
                             <a href={endpoints.INSTAGRAM_HREF} target="blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={faInstagram} />
+                                <FontAwesomeIcon icon={faInstagram} alt="Instagram icon for Vanessa Rusu"/>
                                 <span className="sr-only">Instagram</span>
                             </a>
                         </span>
                         <div className={styles.mobileOnlyMenu}>
-                            <h4>Get in touch</h4>
+                            <p className={styles.headline}>Get in touch</p>
                             <p><a href={`mailto:${endpoints.CONTACT_EMAIL}`}>{endpoints.CONTACT_EMAIL}</a></p>
-                            <p>Based in Burnaby, BC. Working with clients across North America</p>
-
+                            <p dangerouslySetInnerHTML={{__html: endpoints.FOOTER_LOCATION_INFO}}></p>
                             <SocialLinks />
                         </div>
                     </nav>

@@ -1,0 +1,80 @@
+@import '../../global/styles/foundation/colorswatch';
+@import '../../global/styles/utils/mixins';
+
+.headerPanel {
+    @include page-header-panel();
+    padding-bottom: 4rem;
+
+    h1 {
+        max-width: 600px;
+    }
+}
+
+.squiggle {
+    @include squiggle();
+    margin-bottom: 2rem;
+}
+
+.content {
+    @include container(1200px);
+
+    h2 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.container {
+    @include grid(3);
+    grid-gap: 5rem;
+    padding-bottom: 5rem;
+    min-height: 40vh;
+
+    @media (max-width: $desktop-small) {
+        display: block;
+    }
+
+    &:empty {
+        min-height: 40vh;
+        position: relative;
+
+        &:after {
+            width: 100px;
+            height: 50px; /* as the half of the width */
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+            border: 0.3rem solid var(--brand-one);
+            border-bottom: 0;
+            box-sizing: border-box;
+            position: absolute;
+            top: -20vh;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            content: '';
+            animation: rotate-animation 0.6s linear infinite;
+            transform-origin: 50% 100%;
+        }
+    }
+    @include rotate-animation();
+}
+
+.serviceItemContainer {
+    margin-bottom: 2rem;
+
+    @media (max-width: $desktop-small) {
+        margin-bottom: 4rem;
+    }
+}
+
+.emailCTA {
+    margin: 2rem 0;
+    font-family: var(--serif);
+    font-style: italic;
+    text-align: center;
+    
+    a {
+        text-decoration: underline;
+    }
+}

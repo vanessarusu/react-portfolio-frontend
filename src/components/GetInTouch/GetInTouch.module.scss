@@ -31,7 +31,8 @@
 
 .title {
     @include page-heading();
-    margin-bottom: 1rem;
+    font-size: 3.4rem;
+    margin-bottom: 2rem;
 }
 
 .disclaimer {

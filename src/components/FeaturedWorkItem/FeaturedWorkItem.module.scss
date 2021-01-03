@@ -7,12 +7,14 @@
     overflow: hidden;
     position: relative;
     @include transition();
+    opacity: 0;
 
     img {
         width: 100%;
         max-width: 100%;
     }
 }
+
 .columns-4 {
     grid-column: span 3;
     @media (max-width: $tablet) {
@@ -24,6 +26,22 @@
     grid-column: span 4;
     @media (max-width: $tablet) {
         grid-column: 1/-1;
+    }
+}
+
+.button {
+    @include btn-primary();
+    font-weight: 100;
+    border-width: 1px;
+    padding: 0.6rem 1.2rem;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    text-align: right;
+    margin-top: 1.2rem;
+
+    &:after {
+        background: var(--hover);
+        opacity: 0.05;
     }
 }
 
@@ -67,11 +85,11 @@
 
     &:after {
         position: absolute;
-        top: 40%;
+        top: 20%;
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0,0,0,0) 100%);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0,0,0,0) 100%);
         content: '';
     }
 }
@@ -80,7 +98,7 @@
     position: absolute;
     width: 80%;
     height: 100%;
-    bottom: 0;
+    bottom: 1rem;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -100,28 +118,29 @@
 
 .itemTitle {
     text-transform: lowercase;
-    font-size: 2.2rem;
-    @media (max-width: $fablet) { font-size: 1.8rem;}
-    line-height: 1;
-    font-family: var(--serif);
+    font-size: 2.4rem;
+    @media (max-width: $fablet) { font-size: 1.8rem; }
+    line-height: 0.9;
+    font-weight: bold;
 }
 
 .itemCategories {
     text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: 0.8rem;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
     font-style: italic;
 }
 
 .itemSubtext {
     opacity: 0;
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family: var(--serif);
 }
 
 .hoverActive {
     @media (min-width: $desktop-small) {
+        cursor: pointer;
 
         .itemHoverBackground {
             position: absolute;
@@ -135,7 +154,8 @@
         }
 
         .itemCaption {
-            transform: translateY(50%);
+            transform: translateY(38%);
+            cursor: pointer;
 
             &.darkHover {
                 @media(min-width: $desktop-small) {
@@ -155,9 +175,20 @@
         .itemSubtext {
             opacity: 1;
         }
+
+        .button {
+            opacity: 1;
+            cursor: pointer;
+        }
     }
 }
+.unmounted { 
+    opacity: 0;
+}
 
+.mounted {
+    opacity: 1;
+}
 
 // ie fix
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
