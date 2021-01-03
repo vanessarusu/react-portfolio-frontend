@@ -1,5 +1,4 @@
 import React from 'react';
-// import styles from './SinglePortfolio.module.scss';
 
 class ProjectTag extends React.Component {
     constructor(props) {
@@ -12,9 +11,8 @@ class ProjectTag extends React.Component {
 
 
     render() {
-        
         return (
-            <li onClick={this.props.handleClick} className={this.props.active ? `${this.props.activeClass}` : ''}>{this.props.data.name}</li>
+            <li role="button" onClick={this.props.handleClick} className={this.props.active ? `${this.props.activeClass}` : ''}>{this.props.data.name}</li>
         )
     }    
 }
