@@ -39,14 +39,18 @@
     background: var(--brand-offwhite);
 
     h4 {
-        @media (max-width: $fablet) {
+        font-size: 1rem;
+        font-style: italic;
+        font-weight: 100;
+        @include transition();
+
+        @media (max-width: $desktop-medium) {
             font-size: 0.8rem;
         }
     }
     a {
-        @media (max-width: $fablet) {
-            font-size: 0.8rem;
-        }
+        font-size: 0.8rem;
+        text-decoration: underline;
     }
 }
 

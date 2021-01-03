@@ -1,5 +1,6 @@
 @import './global/styles/utils/index';
 @import './global/styles/foundation/index';
+@import './global/styles/utils/mixins';
 
 #root {
     width: 100%;
@@ -32,14 +33,10 @@ p.italics {
             bottom: 0;
             margin: auto;
             content: '';
-            animation: rotate 0.6s linear infinite;
+            animation: rotate-animation 0.6s linear infinite;
             transform-origin: 50% 100%;
         }
     }
-}
 
-@keyframes rotate {
-    100% {
-        transform: rotate(360deg);
-    }
+    @include rotate-animation();
 }

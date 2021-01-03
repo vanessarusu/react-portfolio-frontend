@@ -129,10 +129,13 @@
         grid-column: 1/-1;
     }
 
-    h2 {
-        font-size: 2rem;
+    h3 {
+        font-size: 3.4rem;
+        line-height: 1;
         text-transform: lowercase;
         margin-bottom: 2rem;
+        font-family: var(--sans-serif);
+        font-weight: bold;
 
         @media(max-width: $tablet) {
             text-align: center;
@@ -217,7 +220,7 @@
         p {
             margin-top: 2rem;
             font-size: 0.9rem;
-            font-style: italic;
+
             &.italics {
                 font-size: 0.7rem;
             }
@@ -227,7 +230,9 @@
             list-style: disc;
             margin-left: 1rem;
             li {
-                margin: 0.5rem auto;
+                margin: 0.4rem auto;
+                font-size: 0.9rem;
+                font-style: italic;
             }
         }
     }

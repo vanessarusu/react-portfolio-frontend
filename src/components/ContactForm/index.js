@@ -113,39 +113,42 @@ class ContactForm extends React.Component {
  
             { !isSubmitted ? 
                 <form onSubmit = {this.handleSubmit} className={styles.form}>
-                <label>
-                    <input type="text" name="name" value={name} placeholder="Name" onChange={this.handleChange} required></input>
-                </label>
-                <label>
-                    <input type="email" name="email" value={email} onChange={this.handleChange} placeholder="Email" required></input>
-                </label>
-                <label className={styles.labelPrompt}>What would you like to discuss?</label>
-                <div className={styles.dropdownContainer} onClick={this.toggleDropdown}>
-
-                    <span className={styles.selectedOption}>{this.dropDownValues[category].label}
-                        <img src={dropdownCaret} alt="dropdown indicator" className={styles.dropdownCaret}/>
-                    </span>
-                    <ul value={category} 
-                        name="category" 
-                        className={`${isDropdownOpen ? styles.dropdownOpen : styles.dropdownClose}`}>
-                            {
-                                Object.keys(this.dropDownValues).map((key) => {
-                                    let el = this.dropDownValues[key];
-                                    return <li key={key} onClick={() => this.handleDropdown(key)}>{el.label}</li>
-                                })
-                            }
-                    </ul>
-                    <select value={this.dropDownValues[category].label} onChange={this.handleChange} name="category">
-                        {
-                            Object.keys(this.dropDownValues).map((key) => {
-                                let el = this.dropDownValues[key];
-                                return <option key={key} value={el.value}>{el.label}</option>
-                            })
-                        }
-                    </select>
-                </div>
-                <label>
-                    <textarea value={message} name="message" placeholder="Message" onChange={this.handleChange}></textarea>
+                    <label>
+                        <span className="sr-only">Name</span>
+                        <input type="text" name="name" value={name} placeholder="Name" onChange={this.handleChange} description="name" required></input>
+                    </label>
+                    <label>
+                        <span className="sr-only">Email</span>
+                        <input type="email" name="email" value={email} onChange={this.handleChange} description="email" placeholder="Email" required></input>
+                    </label>
+                    <label className={styles.labelPrompt}>What would you like to discuss?</label>
+                        <div className={styles.dropdownContainer} onClick={this.toggleDropdown}>
+                            <span className={styles.selectedOption}>{this.dropDownValues[category].label}
+                                <img src={dropdownCaret} alt="dropdown indicator" className={styles.dropdownCaret}/>
+                            </span>
+                            <ul value={category} 
+                                name="category" 
+                                className={`${isDropdownOpen ? styles.dropdownOpen : styles.dropdownClose}`}>
+                                    {
+                                        Object.keys(this.dropDownValues).map((key) => {
+                                            let el = this.dropDownValues[key];
+                                            return <li key={key} onClick={() => this.handleDropdown(key)}>{el.label}</li>
+                                        })
+                                    }
+                            </ul>
+                            <label id="selectValue" className="sr-only">Reason for Contact</label>
+                            <select aria-labelledby="selectValue" value={this.dropDownValues[category].label} onChange={this.handleChange} name="category" description="reason for contact">
+                                {
+                                    Object.keys(this.dropDownValues).map((key) => {
+                                        let el = this.dropDownValues[key];
+                                        return <option key={key} value={el.value}>{el.label}</option>
+                                    })
+                                }
+                            </select>
+                        </div>
+                    <label>
+                    <span className="sr-only">Message</span>
+                    <textarea value={message} name="message" placeholder="Message" description="Message" onChange={this.handleChange}></textarea>
                 </label>
                 <input type="submit" value="Submit" />
             </form>

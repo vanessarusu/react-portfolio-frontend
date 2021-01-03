@@ -11,8 +11,9 @@
     padding: 6rem 0;
 
     h1 {
-        font-size: 4rem;
+        font-size: 5rem;
         line-height: 4.4rem;
+        font-family: var(--sans-serif);
         @media (max-width: $tablet) {
             font-size: 2.8rem;
         }
@@ -24,10 +25,32 @@
         text-transform: lowercase;
     }
 
-    h4 {
+    h2 {
         margin: 2rem 0;
         font-size: 1.2rem;
         letter-spacing: 0.5px;
+    }
+
+    .categoryContainer {
+        margin: 4rem 0 1rem;
+        padding:0;
+
+        li {
+            list-style: none;
+            display: inline-block;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            font-family: var(--serif);
+            font-weight: bold;
+            margin-right: 0.2rem;
+
+            &:not(:last-of-type):after {
+                content: '';
+                white-space: pre;
+                content: ', ';
+                margin-left: -0.1rem;
+            }
+        }
     }
 
     a {
@@ -67,6 +90,10 @@
     padding-bottom: 1rem;
     display: inline-block;
     border-bottom: 1px solid white;
+
+    &:not(:first-of-type) {
+        margin-top: 2rem;
+    }
 }
 
 .infoPanelContent {
@@ -80,9 +107,46 @@
 .infoPanelAside {
     grid-column: 10/-1;
     line-height: 1.8;
+
     @media (max-width: $tablet) {
         margin-top: 2rem;
         grid-column: 1/-1;
+    }
+
+    .callout {
+        font-size: 1.4rem;
+        font-family: var(--serif);
+        font-weight: 100;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    .tags {
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            display: inline-block;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin: 0;
+            margin-right: 0.2rem;
+            font-family: var(--serif);
+        }
+        
+        a {
+            font-family: var(--serif);
+            text-decoration: none;
+            
+            @media(min-width: $tablet) {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }
 

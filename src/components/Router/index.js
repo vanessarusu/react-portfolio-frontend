@@ -4,12 +4,14 @@ import Header from '../Header';
 import About from '../About';
 import Footer from '../Footer';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
-// import NotFound from './NotFound';
+import NotFound from '../NotFound';
 import App from '../../App';
 import SinglePortfolio from '../SinglePortfolio';
 import Work from '../Work';
 import Services from '../Services';
 import GetInTouch from '../GetInTouch';
+import Blog from '../Blog';
+import FAQ from '../FAQ';
 import PrivacyPolicy from '../PrivacyPolicy';
 import * as endpoints from '../../global/endpoints';
 import ReactGA from 'react-ga';
@@ -23,13 +25,13 @@ history.listen((location, action) => {
 });
 
 
-console.log("%c \xa9 2020 Vanessa Rusu. info@vanessarusu.com :) ", "font-size: 16px; color: #ffb100; padding: 20px;")
+console.log("%c \xa9 2021 Vanessa Rusu. hello@vanessarusu.com :) ", "font-size: 16px; color: #ffb100; padding: 20px;")
 
 const RouterComponent = () => (
     <BrowserRouter forceRefresh={true}>
         <ScrollToTop>
         <Header />
-        <div className="body-container">
+        <div id="content" className="body-container">
             <Switch>
                 {/* will try the first route, then the second, then fallback */}
                 <Route exact path={endpoints.HOME_PAGE_LINK.link} component={ App } />
@@ -39,7 +41,9 @@ const RouterComponent = () => (
                 <Route path={endpoints.SERVICES_PAGE_LINK.link} component={ Services } />
                 <Route path={endpoints.PRIVACY_POLICY_PAGE.link} component={ PrivacyPolicy } />
                 <Route path={endpoints.CONNECT_PAGE_LINK.link} component={ GetInTouch } />
-                {/* <Route component={ NotFound } /> */}
+                <Route path={endpoints.BLOG_MAIN_LINK.link} component={ Blog } />
+                <Route path={endpoints.FAQ_PAGE_LINK.link} component={ FAQ } />
+                <Route component={ NotFound } />
                 <Route component={ App } />
             </Switch>
         </div>

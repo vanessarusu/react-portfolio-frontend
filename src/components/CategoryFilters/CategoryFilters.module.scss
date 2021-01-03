@@ -1,0 +1,41 @@
+@import '../../global/styles/foundation/breakpoints';
+
+.filterContainer {
+
+    li {
+        display: inline-block;
+        font-family: var(--serif);
+        font-size: 0.9rem;
+        font-style: italic;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+
+        @media (max-width: $fablet) {
+            display: block;
+            padding: 0.3rem 0;
+        }
+
+        @media (min-width: $fablet) {
+            &:not(:last-of-type):after {
+                content: '  |  ';
+                display: inline-block;
+                white-space: pre;
+            }
+        }
+        
+
+        @media(min-width: $desktop-small) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .active {
+        background: var(--brand-one);
+        
+        &:after {
+            background: white;
+        }
+    }
+}

@@ -13,6 +13,8 @@
 .imageContainer {
     grid-column: span 1;
     overflow: hidden;
+    position: relative;
+    height: 100%;
     
     @media (min-width: $desktop-small) {
         min-height: 100vh;
@@ -25,10 +27,21 @@
 
     img {
         height: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        object-fit: cover;
+
         @media (max-width: $desktop-small) {
+            position: relative;
+            top: 0%;
+            left: 0%;
+            transform: translate(0,0);
             width: 100%;
             height: auto;
-         }
+        }
     }
 }
 
@@ -41,7 +54,7 @@
     }
     max-width: 600px;
 
-    h3 {
+    h1 {
         @include page-heading();
     }
 }
@@ -51,12 +64,13 @@
     p:first-of-type {
         font-family: var(--serif);
         font-size: 1.4rem;
-        font-style: italic;
+        max-width: 340px;
+        font-weight: bold;
     }
 
     p:last-of-type {
         font-size: 0.75rem;
-        color: lighten($black, 50%);
+        color: lighten($black, 20%);
         font-family: var(--serif);
         font-style: italic;
         line-height: 1.6;

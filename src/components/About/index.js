@@ -4,6 +4,31 @@ import squiggle from '../../img/squiggle.svg';
 import * as endpoints from '../../global/endpoints';
 import { Link } from "react-router-dom";
 import SocialLinks from '../SocialLinks';
+import ImageBlurOnLoad from '../../global/ImageBlurOnLoad';
+
+// tood: refactor this to be reusable?
+const BlurredUpImage = () => {
+  const [src, { blur }] = ImageBlurOnLoad(
+    "https://vanessasink.com/wp/wp-content/uploads/2019/01/about-vanessa-rusu-tiny.jpg",
+    "https://vanessasink.com/wp/wp-content/uploads/2020/12/about-vanessa-rusu.jpg"
+  );
+
+  return (
+    <img
+      src={src}
+      style={{
+        filter: blur
+          ? "blur(8px)"
+          : "none",
+        transition: blur
+          ? "none"
+          : "filter .5s ease-in-out"
+      }}
+      alt="portrait of studio owner Vanessa Rusu sitting on couch smiling at camera"
+    />
+  )
+}
+
 
 class About extends React.Component {
     constructor(props) {
@@ -13,7 +38,8 @@ class About extends React.Component {
         }
     }
 
-    componentDidMount() {        
+    componentDidMount() {   
+      document.title = `${endpoints.ABOUT_PAGE_TITLE_PARTIAL + endpoints.PAGE_TITLE_CONSTANT}`;     
     
         Promise.all([
           fetch(endpoints.POSTS_BY_ID(endpoints.ABOUT_PAGE))
@@ -21,7 +47,6 @@ class About extends React.Component {
         .then(res => Promise.all(res.map(x => x.json())))
         .then((values) => {
             this.setState({data: values[0]});
-            document.title = this.state.data.title.rendered + ' —  by Vanessa Rusu';
         });
     }
 
@@ -35,10 +60,10 @@ class About extends React.Component {
         return (
             <article className={styles.aboutContainer}>
                 <div className={styles.imageContainer}>
-                    <img src={this.state.data._embedded['wp:featuredmedia']['0'].source_url} alt="Vanessa Rusu" />
+                    <BlurredUpImage />
                 </div>
                 <div className={styles.contentContainer}>
-                    <h3>{this.state.data.title.rendered}</h3>
+                    <h1>{this.state.data.title.rendered}</h1>
                     <img className={styles.squiggle} src={squiggle} alt="squiggle"></img>
                     <div className={styles.content} dangerouslySetInnerHTML={{ __html: this.state.data.content.rendered}}></div>
                     <div className={styles.aboutCTA}>

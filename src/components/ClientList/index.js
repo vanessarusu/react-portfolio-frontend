@@ -37,6 +37,7 @@ class ClientList extends React.Component {
         return (
             <>
             <section className={styles.clientListContainer}>
+                <h2 className="sr-only">Client List</h2>
                 <span className={styles.meta}>Client list</span>
                 <div className={styles.galleryContainer} dangerouslySetInnerHTML={{__html: this.state.brandGallery.content.rendered}}></div>
             </section>

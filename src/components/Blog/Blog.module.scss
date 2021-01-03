@@ -1,0 +1,76 @@
+@import '../../global/styles/utils/mixins';
+@import '../../global/styles/foundation/theme';
+@import '../../global/styles/foundation/breakpoints';
+
+.blog {
+    height: 100vh;
+
+    strong {
+        font-weight: bold;
+    }
+}
+
+.container {
+    @include grid(2);
+
+    @media (max-width: $desktop-small) {
+        display: block;
+    }
+}
+
+.splashCopy {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    font-family: $serif;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 100px 1rem;
+
+    .squiggle {
+        @include squiggle();
+        margin-bottom: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h1 {
+        @include page-heading();
+    }
+}
+
+.splashImage {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;   
+
+    @media (min-width: $desktop-small) {
+        min-height: 100vh;
+        height: 100vh;
+    }
+
+    @media (max-width: $desktop-small) {
+       max-height: 80vh;
+    } 
+
+    img {
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        object-fit: cover;
+
+        @media (max-width: $desktop-small) {
+            position: relative;
+            top: 0%;
+            left: 0%;
+            transform: translate(0,0);
+            width: 100%;
+            height: auto;
+        }
+    }
+}

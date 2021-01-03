@@ -13,23 +13,28 @@
         & > div {
             @include grid(6);
             text-align: center;
+            align-items: center;
+            grid-gap: 0.5rem;
             @media (max-width: $desktop-small) {
                 grid-template-columns: repeat(3, 1fr);
             }
             @media (max-width: $tablet) {
                 grid-template-columns: repeat(2, 1fr);
             }
-            align-items: center;
-            grid-gap: 0.5rem;
-
+            
             figure {
                 pointer-events: none;
+
                 img {
-                    max-width: 110px;
-                    width: 100%;
                     height: auto;
-                    opacity: 0.4;
+                    width: 100%;
+                    max-width: 110px !important;
+                    opacity: 0.5;
                 }
+            }
+            
+            figcaption {
+                display: none;
             }
         }
     }

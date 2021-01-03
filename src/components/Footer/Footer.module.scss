@@ -8,52 +8,84 @@
 }
 
 .container {
-    @include container();
-    display: flex;
-    justify-content: space-between;
-    font-family: $serif;
-    font-style: italic;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     font-size: 0.8rem;
     
-    @media(max-width: $fablet) {
+    @media(max-width: $tablet) {
         display: block;
-        text-align: center;
     }
 
     ul {
-        @include grid(6);
+        margin-top: 1rem;
+        padding-left: 0.2rem;
         @media(max-width: $desktop-small) {
             display: none;
         }
 
         li a {
-            padding: 0.6rem;
+            font-size: 0.8rem;
             display: block;
-            margin: 0.2rem;
-            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
     }
 }
 
+.footerSocials {
+    font-size: 18px;
+    text-align: center;
+}
+
 .logo {
-    max-width: 200px;
-    width: 100%;
-    margin-top: 0.8rem;
+    max-width: 300px;
+    margin-top: 0.5rem;
+    text-align: left;
+
+    @media(max-width: $tablet) {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    figcaption {
+        margin-top: 0.6rem;
+        font-family: var(--serif);
+        font-style: italic;
+        text-transform: lowercase;
+
+        a {
+            text-decoration: underline;
+        }
+    }
 
     @media(max-width: $fablet) {
         max-width: 100%;
     }
 
     img {
-        max-width: 130px;
+        max-width: 240px;
     }
 
 }
 
 .copyrightContainer {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 100;
+    text-transform: lowercase;
+    text-align: right;
+    width: 100%;
+
+    @media(max-width: $tablet) {
+        text-align: center;
+    }
 
     span, a {
-        color: lighten(black, 60%);
+        color: $brand-black;
+        display: block;
+    }
+    a {
+        text-decoration: underline;
     }
 }
 
