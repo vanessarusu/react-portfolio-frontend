@@ -9,8 +9,8 @@ import ImageBlurOnLoad from '../../global/ImageBlurOnLoad';
 // tood: refactor this to be reusable?
 const BlurredUpImage = () => {
   const [src, { blur }] = ImageBlurOnLoad(
-    "https://vanessasink.com/wp/wp-content/uploads/2019/01/about-vanessa-rusu-tiny.jpg",
-    "https://vanessasink.com/wp/wp-content/uploads/2020/12/about-vanessa-rusu.jpg"
+    "https://vanessarusu.com/vanessarusu21/wp-content/uploads/2019/01/about-vanessa-rusu-tiny.jpg",
+    "https://vanessarusu.com/vanessarusu21/wp-content/uploads/2020/12/about-vanessa-rusu.jpg"
   );
 
   return (

@@ -13,6 +13,9 @@
 
 // ie fix
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .lastItemCTA {
+    display: none;
+  }
     .gridContainer > div {
         display: block;
         width: 49%;
@@ -73,7 +76,6 @@
   opacity: 0;
   transition: all 0.5s ease-in-out;
   margin-top: 1.2rem;
-  
 
   &:after {
       background: var(--hover);

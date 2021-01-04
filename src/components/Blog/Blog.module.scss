@@ -44,7 +44,8 @@
 .splashImage {
     overflow: hidden;
     position: relative;
-    height: 100vh;   
+    height: 100vh;
+    background: $offwhite;
 
     @media (min-width: $desktop-small) {
         min-height: 100vh;
