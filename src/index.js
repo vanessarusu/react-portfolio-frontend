@@ -5,6 +5,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import RouterComponent from './components/Router';
 import * as serviceWorker from './serviceWorker';
+import { hydrate, render } from "react-dom";
+
+const rootElement = document.getElementById("root");
+
+// if (rootElement.hasChildNodes()) {
+//   hydrate(<React.StrictMode>
+//     <RouterComponent />
+//   </React.StrictMode>, rootElement);
+// } else {
+//   render(<React.StrictMode>
+//     <RouterComponent />
+//   </React.StrictMode>, rootElement);
+// }
+
 
 ReactDOM.render(
   <React.StrictMode>

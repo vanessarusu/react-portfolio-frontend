@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Services.module.scss';
-import lines from '../../img/lines.svg';
 import squiggle from '../../img/squiggle.svg';
 import * as endpoints from '../../global/endpoints';
 import { Link } from "react-router-dom";
@@ -67,19 +66,33 @@ class Services extends React.Component {
 
                 {
                     Object.keys(postData).map((key) => {
+                        const serviceDetails = postData[key].acf.service_includes_callouts;
                         return (
                             <div key={key} className={styles.serviceItemContainer} name={`${"test-"+key}`} style={{'--bg': postData[key].acf.service_colour}}>
-                                <div className={`${styles.imageContainer}`}><img src={postData[key].acf.service_image_banner} alt={`${postData[key].title.rendered}`} /></div>
+                                <div className={`${styles.imageContainer}`}>
+                                    <img src={postData[key].acf.service_image_banner} alt={`${postData[key].title.rendered}`} />
+
+                                    </div>
                                 <div className={styles.container}>
                                     <img src={postData[key]._embedded['wp:featuredmedia']['0'].source_url} alt={postData[key]._embedded['wp:featuredmedia']['0'].alt_text} className={styles.introImg}/>
                                     <div className={styles.serviceMainContent}>
-                                        <h3 dangerouslySetInnerHTML={{ __html: postData[key].acf.supporting_callout }} style={{color: postData[key].acf.service_colour}}></h3>
-                                        <img src={lines} alt="decorative lines" className={styles.lines}/>
-                                        <div dangerouslySetInnerHTML={{ __html: postData[key].content.rendered }} />
+                                        <h3 className={styles.title} dangerouslySetInnerHTML={{ __html: postData[key].acf.supporting_callout }}></h3>
+                                        
+                                        <div dangerouslySetInnerHTML={{ __html: postData[key].content.rendered }} className={styles.primaryContent} />
+                                        <div className={styles.includes}>
+                                            { serviceDetails && <h3>this service includes</h3>}
+                                            { serviceDetails && 
+                                                Object.keys(serviceDetails).map((key) => {
+                                                    return(
+                                                    <li key={key}>
+                                                        <h4>{serviceDetails[key].post_title}</h4>
+                                                        <p>{serviceDetails[key].post_content}</p>
+                                                    </li>
+                                                )})
+                                            
+                                              }
+                                        </div>
                                         <Link to={endpoints.CONNECT_PAGE_LINK.link} className={styles.CTALink}>Get in Touch</Link>
-                                    </div>
-                                    <div className={styles.sidebar}>
-                                        <div dangerouslySetInnerHTML={{ __html: postData[key].acf.right_side_list }} />
                                     </div>
                                 </div>
                             </div>)
