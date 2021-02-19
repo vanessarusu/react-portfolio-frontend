@@ -35,15 +35,12 @@ class Blog extends React.Component {
       
       document.title = `${endpoints.BLOG_PAGE_TITLE_PARTIAL + endpoints.PAGE_TITLE_CONSTANT}`;
       
-        Promise.all([
-          fetch(endpoints.BLOG_POSTS())
-        ])
-        .then(res => Promise.all(res.map(x => x.json())))
-        .then((values) => {
-            // console.log(values);
-            // this.setState({data: values[0]});
-            // document.title = this.state.data.title.rendered + ' —  by Vanessa Rusu';
-        });
+        // Promise.all([
+        //   fetch(endpoints.BLOG_POSTS())
+        // ])
+        // .then(res => Promise.all(res.map(x => x.json())))
+        // .then((values) => {
+        // });
     }
 
     render() {

@@ -9,19 +9,19 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 const SocialLinks = (props) => (
     <div className={styles.socialLinks}>
-        <a href={endpoints.INSTAGRAM_HREF} target="blank" rel="noopener noreferrer">
+        <a href={endpoints.INSTAGRAM_HREF} target="blank" rel="noopener noreferrer" aria-label="Instagram">
             <FontAwesomeIcon icon={faInstagram} />
         </a>
-        <a href={endpoints.DRIBBLE_HREF} target="blank" rel="noopener noreferrer">
+        <a href={endpoints.DRIBBLE_HREF} target="blank" rel="noopener noreferrer" aria-label="Dribble">
             <FontAwesomeIcon icon={faDribbble} />
         </a>
-        <a href={endpoints.LINKEDIN_HREF} target="blank" rel="noopener noreferrer">
+        <a href={endpoints.LINKEDIN_HREF} target="blank" rel="noopener noreferrer" aria-label="Linkedin">
             <FontAwesomeIcon icon={faLinkedinIn} />
         </a>
-        <a href={endpoints.GITHUB_HREF} target="blank" rel="noopener noreferrer">
+        <a href={endpoints.GITHUB_HREF} target="blank" rel="noopener noreferrer" aria-label="Github">
             <FontAwesomeIcon icon={faGithub} />
         </a>
-        <a href={`mailto:${endpoints.CONTACT_EMAIL}`}>
+        <a href={`mailto:${endpoints.CONTACT_EMAIL}`} aria-label="Email">
             <FontAwesomeIcon icon={faEnvelope} />
         </a>
     </div>

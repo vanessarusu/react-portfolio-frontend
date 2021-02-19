@@ -28,7 +28,7 @@ const FeaturedWorkGrid = (props) => {
     return(
         <div role="main" id="featuredWork" aria-labelledby="featuredWork">
             <h2 className="sr-only" aria-hidden="true">Featured Work</h2>
-            <ul className={`${styles.gridContainer}`}>
+            <div className={`${styles.gridContainer}`}>
                 
                 {Object.keys(finalData).map(key => {
                     return (
@@ -51,7 +51,7 @@ const FeaturedWorkGrid = (props) => {
                     )
                 }
                 
-            </ul>
+            </div>
         </div>
     )
 }

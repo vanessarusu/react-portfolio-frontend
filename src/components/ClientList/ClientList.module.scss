@@ -42,7 +42,7 @@
 
 .meta {
     @include meta();
-    color: rgba($white, 0.4);
+    color: rgba($white, 1);
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {

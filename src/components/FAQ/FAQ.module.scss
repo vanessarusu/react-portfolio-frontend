@@ -66,6 +66,9 @@
     @media (max-width: $desktop-small) {
         margin-bottom: 4rem;
     }
+    a {
+        text-decoration: underline;
+    }
 }
 
 .emailCTA {

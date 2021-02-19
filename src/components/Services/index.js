@@ -84,11 +84,12 @@ class Services extends React.Component {
                                             { serviceDetails && 
                                                 Object.keys(serviceDetails).map((key) => {
                                                     return(
-                                                    <li key={key}>
+                                                    <div key={key}>
                                                         <h4>{serviceDetails[key].post_title}</h4>
                                                         <p>{serviceDetails[key].post_content}</p>
-                                                    </li>
+                                                    </div>
                                                 )})
+                                                
                                             
                                               }
                                         </div>

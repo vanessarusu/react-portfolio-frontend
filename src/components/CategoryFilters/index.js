@@ -60,7 +60,7 @@ class CategoryFilters extends React.Component {
         }
         
         return (
-            <ul className={styles.filterContainer}>
+            <ul className={styles.filterContainer} role="tablist">
                 <ProjectTag 
                     handleClick={() => this.clearFilters()} 
                     tagid={this.clearFiltersKey} 

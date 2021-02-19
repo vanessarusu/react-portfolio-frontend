@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import SocialLinks from './../SocialLinks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { HashLink as HashLink } from 'react-router-hash-link';
+import NoticeBar from '../NoticeBar';
 
 class Header extends React.Component {
     constructor(props) {
@@ -71,7 +73,8 @@ class Header extends React.Component {
     render() {
         return (
             <header className={styles.header} role="banner">
-                <a href="#content" className={styles.skip}>Skip to content</a>
+                <HashLink to="#content" className={styles.skip}>Skip to content</HashLink>
+                <NoticeBar/>
                 <div className={styles.container}>
                     <figure className={styles.logo}>
                         <Link to={'/'}>

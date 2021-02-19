@@ -58,16 +58,18 @@ class FeaturedWorkItem extends React.Component {
             <div 
             className={`${this.state.hover ? styles.hoverActive : ''} ${styles.gridItem} ${className} ${this.state.mounted ? styles.mounted : styles.unmounted}`} 
             onMouseEnter={this.hoverFunction} 
+            onFocus={this.hoverFunction} 
+            onBlur={this.hoverFunction} 
             onMouseLeave={this.hoverFunction}>
                 <Link to={{pathname: urlString}}>
                     <h3 className="sr-only">{data.title.rendered}</h3>
                     <figure>
                         <div className={styles.imageContainer}>
-                            <img src={data._embedded['wp:featuredmedia']['0'].source_url} alt={`${data.title.rendered} - ${data.acf.project_categories}`} />
+                            <img src={data._embedded['wp:featuredmedia']['0'].source_url} alt={data._embedded['wp:featuredmedia']['0'].alt_text} />
                         </div>
                         <figcaption className={styles.itemCaptionContainer}>
                             <div className={`${styles.itemCaption} ${data.acf.project_dark_hover_title ? styles.darkHover : '' }`}>
-                                <p className={styles.itemTitle}>{data.title.rendered}</p>
+                                <p className={styles.itemTitle} aria-hidden="true">{data.title.rendered}</p>
                                 <p className={styles.itemCategories}>{data.acf.project_categories}</p>
                                 <p className={styles.itemSubtext} style={{color: `${data.acf.project_light_hover_description ? 'white' : themeBlackColorRef }`}}>{data.acf.project_excerpt}</p>
                                 <p role="button" className={styles.button} style={{color: colorTernary, borderColor: colorTernary, '--hover': colorTernary}}>View Project</p>

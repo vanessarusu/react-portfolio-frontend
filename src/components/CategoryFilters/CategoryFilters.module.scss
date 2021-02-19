@@ -27,7 +27,8 @@
         
 
         @media(min-width: $desktop-small) {
-            &:hover {
+            &:hover, 
+            &:focus {
                 text-decoration: underline;
             }
         }

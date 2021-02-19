@@ -36,7 +36,13 @@ class Flyout extends React.Component {
         }
 
         return (
-            <div className={`${this.state.visible ? styles.isVisible : ''} ${styles.flyoutContainer} ${this.state.mobileExpanded ? styles.mobileExpanded : styles.mobileCollapsed}`} onMouseEnter={hoverHandler} onMouseLeave={hoverHandler}>
+            <div 
+            className={`${this.state.visible ? styles.isVisible : ''} ${styles.flyoutContainer} ${this.state.mobileExpanded ? styles.mobileExpanded : styles.mobileCollapsed}`} 
+            onFocus={hoverHandler} 
+            onBlur={hoverHandler} 
+            onMouseEnter={hoverHandler} 
+            onMouseLeave={hoverHandler}
+            tabIndex="0">
                 <div className={styles.flyoutContent}>
                     <h3 onClick={this.clickHandler}>{title}</h3>
                     <div className={`${styles.listContainer} ${styles.flyoutContent}`} dangerouslySetInnerHTML={{ __html: content }}></div>

@@ -12,7 +12,7 @@ class ProjectTag extends React.Component {
 
     render() {
         return (
-            <li role="button" onClick={this.props.handleClick} className={this.props.active ? `${this.props.activeClass}` : ''}>{this.props.data.name}</li>
+            <li tabindex="0" role="tab" aria-controls="featuredWork" onClick={this.props.handleClick} className={this.props.active ? `${this.props.activeClass}` : ''}>{this.props.data.name}</li>
         )
     }    
 }

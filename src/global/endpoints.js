@@ -58,9 +58,11 @@ export const TESTIMONIALS_CAT = '11';
 export const FAQ_QUESTION_CAT = '35';
 
 // posts
+export const NOTIFICATION_TOPBAR_POST= '467'
 export const SPECIFICS_LIST = '143';
 export const BRAND_AUDIT_OPTIN = '595';
 export const PRIVACY_POLICY = '605';
+
 
 export const ABOUT_PAGE = '245';
 export const WORK_PAGE_COPY = 'the-work';
