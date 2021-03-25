@@ -111,7 +111,7 @@ export const ABOUT_PAGE_LINK = {
 }
 
 export const CONNECT_PAGE_LINK = {
-    name: 'Connect',
+    name: 'Contact',
     link: '/get-in-touch'
 }
 

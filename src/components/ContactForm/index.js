@@ -9,7 +9,6 @@ class ContactForm extends React.Component {
     constructor(props) {
         super(props);
         // const token = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODg4OFwvMjAxOFwvYm93ZXJfY29tcG9uZW50c1wvd29yZHByZXNzIiwiaWF0IjoxNTQ4NTM0OTE2LCJuYmYiOjE1NDg1MzQ5MTYsImV4cCI6MTU0OTEzOTcxNiwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.wIGDZBWYak3zp_211w7Buu9ZRn9bZ4ir3hsBUUKyOcM';
-        // const token = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdmFuZXNzYXJ1c3UuY29tXC92YW5lc3NhcnVzdTIxIiwiaWF0IjoxNjA5NzExNzA1LCJuYmYiOjE2MDk3MTE3MDUsImV4cCI6MTYxMDMxNjUwNSwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.iCj6o1vadYi62m4DmEYrA5AmJKaa-AOHp0uN61sb_sc';
         this.state = {
             category: 0,
             message: '',
@@ -61,12 +60,13 @@ class ContactForm extends React.Component {
             crossDomain: true,
             headers: {
                 Accept: "application/json",
-                "Authorization": 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdmFuZXNzYXJ1c3UuY29tXC92YW5lc3NhcnVzdTIxIiwiaWF0IjoxNjA5NzExNzA1LCJuYmYiOjE2MDk3MTE3MDUsImV4cCI6MTYxMDMxNjUwNSwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.iCj6o1vadYi62m4DmEYrA5AmJKaa-AOHp0uN61sb_sc',
+                "Authorization": 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdmFuZXNzYXJ1c3UuY29tXC92YW5lc3NhcnVzdTIxIiwiaWF0IjoxNjE2MjgwODI3LCJuYmYiOjE2MTYyODA4MjcsImV4cCI6MTcwMjY4MDgyNywiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.i3XdO03KxyV9LMUN6yMxQJ0-pGIqXuONSCNmI40P4Ow'
             },
             body: formData
             })
               .then(res => {return res.json()})
               .then(data => {
+                  console.log(data);
                   this.setState({
                       isSubmitted: true,
                       isSending: false
