@@ -90,7 +90,6 @@ class Header extends React.Component {
                         </div>
                     <nav className={styles.nav} aria-label="Primary Navigation">
                     <h2 className="sr-only" aria-hidden="true">Main Navigation</h2>
-
                         <ul>
                             {
                                 Object.keys(this.links).map((key) => {
@@ -101,7 +100,6 @@ class Header extends React.Component {
                                 })
                             }
                         </ul>
-                        
                         <span className={styles.social}>
                             <a href={endpoints.INSTAGRAM_HREF} target="blank" rel="noopener noreferrer">
                                 <FontAwesomeIcon icon={faInstagram} alt="Instagram icon for Vanessa Rusu"/>

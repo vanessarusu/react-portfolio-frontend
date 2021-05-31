@@ -11,7 +11,7 @@ class InstagramFeed extends React.Component {
     }
 
     componentDidMount() {        
-        let accessToken = 'IGQVJVcFFESjVvTUZATWURJSXJLZAjRFTXpvX0hfUUdYVFJVakZAkRU5rRGRyalRLMEtOaENYa1FIc09qbkxtcTBONGdPbm1abWZAFb0trR1ZA5ejc2bU5NakN3THhjMHFrZAWs5cEFSSlhmM1ViWVdSNHBRVwZDZD';
+        let accessToken = 'IGQVJXOXd1OFVBWHRCNkxWTUJDSW1KM3VRcUg2eUZAoSVU1dkhKZAWF6QmhqSXlYRlk5N2tseXRWRnhZAa0dwZAFhPcDEyLUFHOHU2aDVVX3pNZAHZAieGdxWFdral84NXJyV1dHTUxaSEk2VkNDc2lsMTF2MgZDZD';
 
         Promise.all([
           fetch('https://graph.instagram.com/me/media?fields=media_url,username&limit=5&access_token='+accessToken),

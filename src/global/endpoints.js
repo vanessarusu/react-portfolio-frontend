@@ -126,7 +126,7 @@ export const SITE_NAVIGATION = [
     ABOUT_PAGE_LINK,
     CONNECT_PAGE_LINK,
     FAQ_PAGE_LINK,
-    BLOG_MAIN_LINK
+    // BLOG_MAIN_LINK
 ];
 
 // strings
